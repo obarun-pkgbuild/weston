@@ -5,7 +5,7 @@
 
 pkgname=weston
 pkgver=3.0.0
-pkgrel=2
+pkgrel=3
 pkgdesc='Reference implementation of a Wayland compositor'
 arch=(x86_64)
 url='https://wayland.freedesktop.org/'
