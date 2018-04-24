@@ -4,8 +4,8 @@
 # 						Contributor: Joel Teichroeb <joel@teichroeb.net>
 
 pkgname=weston
-pkgver=3.0.0
-pkgrel=3
+pkgver=4.0.0
+pkgrel=2
 pkgdesc='Reference implementation of a Wayland compositor'
 arch=(x86_64)
 url='https://wayland.freedesktop.org/'
@@ -16,7 +16,7 @@ depends=('glibc' 'wayland' 'libxkbcommon' 'libinput' 'libunwind' 'pixman'
          'libxcb' 'dbus' 'libva' 'libxcursor' 'colord')
 makedepends=('wayland-protocols')
 source=("https://wayland.freedesktop.org/releases/$pkgname-$pkgver.tar.xz")
-sha1sums=('0a75c2ee10f2453a073411157bb6ed029080669f')
+sha1sums=('df1da4a880920c515162e95b18f3709a46690be7')
 validpgpkeys=('6DD4217456569BA711566AC7F06E8FDE7B45DAAC') # Eric Vidal
 
 build() {
@@ -25,7 +25,15 @@ build() {
     --prefix=/usr \
     --libexecdir=/usr/lib/weston \
     --enable-xwayland \
-    --enable-demo-clients-install
+    --enable-demo-clients-install \
+    --enable-weston-launch \
+    --enable-clients \
+    --enable-fbdev-compositor \
+    --enable-drm-compositor \
+    --enable-x11-compositor \
+    --disable-setuid-install \
+    --disable-systemd-notify \
+    --disable-systemd-login
   make
 }
 
